@@ -8,6 +8,7 @@
 \graphicspath{ {images/} }
 
 \usepackage{parskip}
+\usepackage{dirtytalk}
 
 \usepackage{fancyhdr}
 \pagestyle{fancy}
@@ -46,8 +47,9 @@ $I$, $k$ och $\lambda$ beror alla på egenskaper hos pendeln samt pendelns radie
 
 Differentialekvationen har olika lösningar beroende på värdena på konstanterna:
 \begin{enumerate}
-    \item Fri pendel: $\lambda=0 \land \mu=0\Leftrightarrow\theta=A\sin(\omega_0t+\phi)=A\cos(\theta)\sin(\omega_0t)+$
-    \item Däm$Ae^{-\frac{\lambda}{2}t}\cdot\sin(\omega t)$
+    \item Fri pendel: $\lambda=0\land\mu=0\Leftrightarrow\theta(t)=A\sin(\omega_0 t+\phi)$
+    \item Dämpad pendel: $\lambda\neq0\land\mu=0\Leftrightarrow\theta(t)=Ae^{-\frac{\lambda}{2}t}\cdot\sin(t\sqrt{\omega_0^2-\frac{\lambda^2}{4}})$
+    \item Driven pendel: $\lambda=0\land\mu\neq0\Leftrightarrow\theta(t)=\frac{\mu}{\omega_0^2-\omega^2}\sin(\omega t+\phi)$ där $\omega$ är 
 \end{enumerate}
 \section{Metod}
 \section{Resultat}
@@ -56,14 +58,19 @@ Den insamlade datan som mättes med Cassy Lab under laborationen redovisas i fig
 
 \begin{figure}[hp]
     \includegraphics[width=\textwidth]{graf_egenfrekvens}
-    \caption{Datan för ``odämpad'' svängning.}
+    \caption{Datan för svängning utan pålagd dämpning.}
+\end{figure}
+
+\begin{figure}[hp]
+    \includegraphics[width=\textwidth]{graf_resonansfrekvens}
+    \caption{Datan för driven svängning runt resonansfrekvensen.}
 \end{figure}
 
 \section{Analys}
 
 \begin{equation}
     \begin{split}        
-        y&=0.1318\cdot\sin((180.63x+103.83)\cdot\frac{2\pi}{360})\\
+        y&=0.1318\cdot\sin((180.63x+103.83)\cdot\frac{\pi}{180})\\
         &\approx0.1318\cdot\sin(3.153x+1.812)    
     \end{split}
 \end{equation}
