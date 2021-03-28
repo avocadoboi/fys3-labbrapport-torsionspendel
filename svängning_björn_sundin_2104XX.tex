@@ -60,7 +60,7 @@ Differentialekvationen har olika lösningar beroende på värdena på konstanter
         \theta(t)=A\sin\biggl(t\sqrt\frac{k}{I}+\phi\biggr)
     \end{equation}
     \item Svagt dämpad pendel, $\mu=0\land\lambda<2\sqrt{Ik}$
-    \begin{equation}
+    \begin{equation}\label{eq:svagt_dämpad}
         \theta(t)=Ae^{-\frac{\lambda}{2I}t}\sin\biggl(t\sqrt{\frac{k}{I}-\frac{\lambda^2}{4I^2}}+\phi\biggr)
     \end{equation}
     \item Kritiskt dämpad pendel, $\mu=0\land\lambda=2\sqrt{Ik}$
@@ -68,8 +68,8 @@ Differentialekvationen har olika lösningar beroende på värdena på konstanter
         \theta(t)=e^{-\frac{\lambda}{2I}t}\left(C_1t+C_2\right)
     \end{equation}
     \item Starkt dämpad pendel, $\mu=0\land\lambda>2\sqrt{Ik}$
-    \begin{equation}
-        \theta(t)=e^{-\frac{\lambda}{2I}t}\left(C_1e^{t\sqrt{\frac{k}{I}-\frac{\lambda^2}{4I^2}}}+C_2e^{-t\sqrt{\frac{k}{I}-\frac{\lambda^2}{4I^2}}}\right)
+    \begin{equation}\label{eq:starkt_dämpad}
+        \theta(t)=e^{-\frac{\lambda}{2I}t}\left(C_1e^{t\sqrt{\frac{\lambda^2}{4I^2}-\frac{k}{I}}}+C_2e^{-t\sqrt{\frac{\lambda^2}{4I^2}-\frac{k}{I}}}\right)
     \end{equation}
     \item Driven pendel, $\mu\neq0\land\lambda=0$
     \begin{equation}
@@ -95,67 +95,67 @@ Den insamlade datan som mättes med Cassy Lab under laborationen redovisas i fig
 \end{figure}
 
 \begin{figure}[hp]
-    \includegraphics[width=\textwidth]{graf_1_v_centered.png}
+    \includegraphics[width=\textwidth]{graf_1_v_centered}
     \caption{Datan för dämpad svängning med 1 V spänning i dämpningsenheten.}
     \label{fig:data_1_v}
 \end{figure}
 
 \begin{figure}[hp]
-    \includegraphics[width=\textwidth]{graf_4_v_centered.png}
+    \includegraphics[width=\textwidth]{graf_4_v_centered}
     \caption{Datan för dämpad svängning med 4 V spänning i dämpningsenheten.}
     \label{fig:data_4_v}
 \end{figure}
 
 \begin{figure}[hp]
-    \includegraphics[width=\textwidth]{graf_5_v_centered.png}
+    \includegraphics[width=\textwidth]{graf_5_v_centered}
     \caption{Datan för dämpad svängning med 5 V spänning i dämpningsenheten.}
     \label{fig:data_5_v}
 \end{figure}
 
 \begin{figure}[hp]
-    \includegraphics[width=\textwidth]{graf_6_v_centered.png}
+    \includegraphics[width=\textwidth]{graf_6_v_centered}
     \caption{Datan för dämpad svängning med 6 V spänning i dämpningsenheten.}
     \label{fig:data_6_v}
 \end{figure}
 
 \begin{figure}[hp]
-    \includegraphics[width=\textwidth]{graf_7_v_centered.png}
+    \includegraphics[width=\textwidth]{graf_7_v_centered}
     \caption{Datan för dämpad svängning med 7 V spänning i dämpningsenheten.}
     \label{fig:data_7_v}
 \end{figure}
 
 \begin{figure}[hp]
-    \includegraphics[width=\textwidth]{graf_8_v_centered.png}
+    \includegraphics[width=\textwidth]{graf_8_v_centered}
     \caption{Datan för dämpad svängning med 8 V spänning i dämpningsenheten.}
     \label{fig:data_8_v}
 \end{figure}
 
 \begin{figure}[hp]
-    \includegraphics[width=\textwidth]{graf_9_v_centered.png}
+    \includegraphics[width=\textwidth]{graf_9_v_centered}
     \caption{Datan för dämpad svängning med 9 V spänning i dämpningsenheten.}
     \label{fig:data_9_v}
 \end{figure}
 
 \begin{figure}[hp]
-    \includegraphics[width=\textwidth]{graf_10_v_centered.png}
+    \includegraphics[width=\textwidth]{graf_10_v_centered}
     \caption{Datan för dämpad svängning med 10 V spänning i dämpningsenheten.}
     \label{fig:data_10_v}
 \end{figure}
 
 \begin{figure}[hp]
-    \includegraphics[width=\textwidth]{graf_11_v_centered.png}
+    \includegraphics[width=\textwidth]{graf_11_v_centered}
     \caption{Datan för dämpad svängning med 11 V spänning i dämpningsenheten.}
     \label{fig:data_11_v}
 \end{figure}
 
 \begin{figure}[hp]
-    \includegraphics[width=\textwidth]{graf_13_v_centered.png}
+    \includegraphics[width=\textwidth]{graf_13_v_centered}
     \caption{Datan för dämpad svängning med 13 V spänning i dämpningsenheten.}
     \label{fig:data_13_v}
 \end{figure}
 
 \begin{figure}[hp]
-    \includegraphics[width=\textwidth]{graf_14_v_centered.png}
+    \includegraphics[width=\textwidth]{graf_14_v_centered}
     \caption{Datan för dämpad svängning med 14 V spänning i dämpningsenheten.}
     \label{fig:data_14_v}
 \end{figure}
@@ -165,13 +165,17 @@ Den insamlade datan som mättes med Cassy Lab under laborationen redovisas i fig
 
 En funktionsanpassning av datan i Figur \ref{fig:data_egenfrekvens} med lösningen i ekvation \ref{eq:fri_pendel} gav:
 \begin{equation}
-    \begin{split}        
-        \theta(t)&=0.1318\cdot\sin\bigl((180.63t+103.83)\cdot\frac{\pi}{180}\bigr)\\
-        &\approx0.1318\cdot\sin(3.153t+1.812)
-    \end{split}
+    \theta(t)=0.125665\cdot\sin\bigl(3.15192t+1.81944\bigr)
 \end{equation}
+% En funktionsanpassning av samma data med ekvation \ref{eq:}
 
-Egenfrekvensen är alltså $\omega_0=\sqrt\frac{k}{I}=\SI{3.153}{rad/s}$, amplituden $A=\SI{0.1318}{m}$, och fas\-förskjutningen $\phi=\SI{1.812}{rad}$.
+Egenfrekvensen är alltså $\omega_0=\sqrt\frac{k}{I}=\SI{3.15192}{rad/s}$, amplituden $A=\SI{0.125665}{m}$, och fas\-förskjutningen $\phi=\SI{1.81944}{rad}$.
+
+\begin{figure}[hp]
+    \includegraphics[width=\textwidth]{graf_voltage_damping}
+    \caption{Värden på $\frac{\lambda}{I}$ för olika spänning i dämpningsenheten.}
+    \label{fig:dämpning_över_spänning}
+\end{figure}
 
 \section{Slutsatser}
 
