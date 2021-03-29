@@ -25,14 +25,15 @@
 
 \maketitle
 
+\clearpage
 \section{Inledning}
 \subsection{Syfte}
-I denna laboration undersöks en torsionspendel. Syftet är att ta reda på egenskaper hos pendeln från data som samlas från sensorer vid svängningar med olika dämpnings\-koefficient samt med och utan ett pålagt periodiskt vridmoment med varierande frekvens.
+I denna laboration undersöks en torsionspendel. Syftet är att ta reda på egenskaper hos pendeln från data som samlas från sensorer vid svängningar med olika dämpnings\-koefficient samt med och utan ett pålagt periodiskt vridmoment.
 \subsection{Frågeställningar}
 \begin{enumerate}
     \item Vad är torsionspendelns egenfrekvens?
     \item Vad är frekvensen hos drivningsenheten som ger resonans i pendeln?
-    \item Vad är förhållandet mellan dämpningskonstanten $\lambda$ och spänningen $U$ på dämp\-ningsenheten?
+    \item Vad är förhållandet mellan dämpningskonstanten $\lambda$, tröghetsmomentet $I$ och spänn\-ingen $U$ på dämpningsenheten?
     \item Hur väl beskriver de matematiska modellerna systemet?
 \end{enumerate}
 
@@ -76,12 +77,12 @@ Differentialekvationen har olika lösningar beroende på värdena på konstanter
         \end{gathered}
     \end{equation}
     \item Driven pendel, $\mu\neq0\land\lambda=0$
-    \begin{equation}
+    \begin{equation}\label{eq:driven}
         \theta(t)=A\sin(\omega_0t+\phi)+\frac{\mu}{I(\omega_0^2-\omega^2)}\cos(\omega t)
     \end{equation}
     $\omega$ är den drivande kraftens frekvens och $\omega_0$ är egenfrekvensen $\sqrt{\frac{k}{I}}$.
     \item Dämpad, driven pendel, $\mu\neq0\land\lambda\neq0$
-    \begin{equation}
+    \begin{equation}\label{eq:dämpad_driven}
         \begin{gathered}
             \theta(t)=\theta_d(t)+\sgn(b)\frac{\mu}{I\sqrt{a^2+b^2}}\cos\biggl(\omega t-\tan^{-1}\Bigl(\frac{a}{b}\Bigr)\biggr)\\
             \begin{cases}
@@ -93,9 +94,13 @@ Differentialekvationen har olika lösningar beroende på värdena på konstanter
     Här är $\theta_d(t)$ en lösning för en dämpad pendel utan drivkraft. Resonansfrekvensen är $\omega_r=\sqrt{\omega_0^2-\frac{\lambda^2}{2I^2}}$.
 \end{enumerate}
 \section{Metod}
+Experimenten går ut på att mäta läget av en torsionspendel över tid med hjälp av programmet Cassy Lab. Först mättes den naturliga svängningen hos en fri pendel utan pålagd dämpning eller pålagt vridmoment. Sedan sattes en drivningsenhet på som applicerar ett periodiskt vridmoment vid en viss radie på pendeln. För att undersöka vilken frekvens hos drivenheten som ger störst amplitud hos svängningen justerades frekvensen av det yttre vridmomentet långsamt, motsvarande $\omega$ i ekvation (\ref{eq:driven}) och (\ref{eq:dämpad_driven}). 
 
+För att undersöka dämpad svängning användes en dämpningsenhet. Denna består av en elektromagnet som orsakar en inducerad ström i pendeln som enligt Lenz lag i sin tur motverkar rörelsen som orsakade induktionen. Elektromagneten är kopplad över en viss spänning $U$, och det är denna som justeras för att ändra på dämpningskonstanten $\lambda$. Mätningar gjordes för elva olika värden på spänningen, med drivningsenheten avslagen.
+
+\clearpage
 \section{Resultat}
-Den insamlade datan som mättes med Cassy Lab under laborationen redovisas i figurerna nedan. 
+Den insamlade datan som mättes med Cassy Lab under laborationen redovisas i figurerna nedan. Y-axlarna visar viktens avvikelse från jämviktsläget i meter. Denna avvikelse dividerad på pendelhjulets (okända) radie ger alltså vinkelavvikelsen $\theta$.
 
 \begin{figure}[hp]
     \includegraphics[width=\textwidth]{graf_egenfrekvens}
