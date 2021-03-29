@@ -2,8 +2,9 @@
 \usepackage[a4paper, margin=2.5cm]{geometry}
 \usepackage[utf8]{inputenc}
 \usepackage[swedish]{babel}
-\usepackage{amsmath}
 \usepackage{siunitx}
+\usepackage{amsmath}
+\DeclareMathOperator{\sgn}{sgn}
 
 \usepackage{graphicx}
 \graphicspath{ {images/} }
@@ -69,13 +70,27 @@ Differentialekvationen har olika lösningar beroende på värdena på konstanter
     \end{equation}
     \item Starkt dämpad pendel, $\mu=0\land\lambda>2\sqrt{Ik}$
     \begin{equation}\label{eq:starkt_dämpad}
-        \theta(t)=e^{-\frac{\lambda}{2I}t}\left(C_1e^{t\sqrt{\frac{\lambda^2}{4I^2}-\frac{k}{I}}}+C_2e^{-t\sqrt{\frac{\lambda^2}{4I^2}-\frac{k}{I}}}\right)
+        \begin{gathered}
+            \theta(t)=e^{-\frac{\lambda}{2I}t}\left(C_1e^{td}+C_2e^{-td}\right)\\
+            d=\sqrt{\frac{\lambda^2}{4I^2}-\frac{k}{I}}
+        \end{gathered}
     \end{equation}
     \item Driven pendel, $\mu\neq0\land\lambda=0$
     \begin{equation}
-        \theta(t)=\frac{\mu}{\omega_0^2-\omega^2}\sin\left(\omega t+\phi\right)
+        \theta(t)=A\sin(\omega_0t+\phi)+\frac{\mu}{I(\omega_0^2-\omega^2)}\cos(\omega t)
     \end{equation}
-    Där $\omega$ är den drivande frekvensen och $\omega_0$ är egenfrekvensen.
+    $\omega$ är den drivande kraftens frekvens och $\omega_0$ är egenfrekvensen $\sqrt{\frac{k}{I}}$.
+    \item Dämpad, driven pendel, $\mu\neq0\land\lambda\neq0$
+    \begin{equation}
+        \begin{gathered}
+            \theta(t)=\theta_d(t)+\sgn(b)\frac{\mu}{I\sqrt{a^2+b^2}}\cos\biggl(\omega t-\tan^{-1}\Bigl(\frac{a}{b}\Bigr)\biggr)\\
+            \begin{cases}
+                a=\frac{\lambda}{I}\omega\\
+                b=\omega_0^2-\omega^2
+            \end{cases}
+        \end{gathered}        
+    \end{equation}
+    Här är $\theta_d(t)$ en lösning för en dämpad pendel utan drivkraft. Resonansfrekvensen är $\omega_r=\sqrt{\omega_0^2-\frac{\lambda^2}{2I^2}}$.
 \end{enumerate}
 \section{Metod}
 
@@ -163,11 +178,10 @@ Den insamlade datan som mättes med Cassy Lab under laborationen redovisas i fig
 \clearpage
 \section{Analys}
 
-En funktionsanpassning av datan i Figur \ref{fig:data_egenfrekvens} med lösningen i ekvation \ref{eq:fri_pendel} gav:
+En funktionsanpassning av datan i Figur \ref{fig:data_egenfrekvens} med lösningen i ekvation (\ref{eq:fri_pendel}) gav:
 \begin{equation}
     \theta(t)=0.125665\cdot\sin\bigl(3.15192t+1.81944\bigr)
 \end{equation}
-% En funktionsanpassning av samma data med ekvation \ref{eq:}
 
 Egenfrekvensen är alltså $\omega_0=\sqrt\frac{k}{I}=\SI{3.15192}{rad/s}$, amplituden $A=\SI{0.125665}{m}$, och fas\-förskjutningen $\phi=\SI{1.81944}{rad}$.
 
