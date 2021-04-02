@@ -42,20 +42,20 @@ I denna laboration undersöks en torsionspendel. Syftet är att ta reda på egen
 \end{enumerate}
 
 \subsection{Teori}
-Den matematiska modellen som används för att beskriva svängningsrörelsen hos torsionspendeln beskrivs av denna differentialekvation:
-\begin{equation}
+Den matematiska modellen som används för att beskriva svängningsrörelsen hos torsionspendeln är denna differentialekvation:
+\begin{equation*}
 	\begin{split}
 		I\frac{\mathrm{d}^2\theta}{\mathrm{d}t^2}=-k\theta-\lambda\frac{\mathrm{d}\theta}{\mathrm{d}t}+\mu\cos(\omega t)\Leftrightarrow\\
 		\theta''(t)+\frac{\lambda}{I}\theta'(t)+\frac{k}{I}\theta(t)=\frac{\mu}{I}\cos(\omega t)
 	\end{split}
-\end{equation}
+\end{equation*}
 Där: 
 \begin{itemize}
 	\item $\theta$ är vinkelpositionen av pendeln relativt jämviktsläget i radianer.
 	\item $I$ är tröghetsmomentet för pendeln med enhet \si{kg.m^2}. Det är vridmomentet som krävs för att skapa en vinkelacceleration på 1 \si{rad/s^2}.
 	\item $k$ är vridmomentet per radian vinkelavvikelse riktat mot jämviktsläget för den specifika pendeln. Detta vridmoment orsakar den naturliga svängningen.
 	\item $\lambda$ är ett bromsande vridmoment per \si{rad/s} motriktat rörelseriktningen. Denna orsakar pendelns dämpning.
-	\item $\mu$ är amplituden av det pålagda vridmomentet, med frekvensen $\omega$ \si{rad/s}.
+	\item $\mu$ är amplituden av det pålagda vridmomentet med frekvensen $\omega$ \si{rad/s}.
 \end{itemize}
 $I$, $k$ och $\lambda$ beror alla på egenskaper hos pendeln samt pendelns radie. $\mu$ beror däremot på den radie där det pålagda vridmomentet appliceras samt kraftens maximum som orsakar vridmomentet.
 
@@ -70,9 +70,9 @@ Differentialekvationen har olika lösningar beroende på värdena på konstanter
 		\theta(t)=Ae^{-\frac{\lambda}{2I}t}\sin\biggl(t\sqrt{\frac{k}{I}-\frac{\lambda^2}{4I^2}}+\phi\biggr)
 	\end{equation}
 	\item Kritiskt dämpad pendel, $\mu=0\land\lambda=2\sqrt{Ik}$
-	\begin{equation}
+	\begin{equation*}
 		\theta(t)=e^{-\frac{\lambda}{2I}t}\left(C_1t+C_2\right)
-	\end{equation}
+	\end{equation*}
 	\item Starkt dämpad pendel, $\mu=0\land\lambda>2\sqrt{Ik}$
 	\begin{equation}\label{eq:starkt_dämpad}
 		\begin{gathered}
@@ -192,18 +192,18 @@ Den insamlade datan som mättes med Cassy Lab under laborationen redovisas i fig
 \section{Analys}
 \subsection{Egenfrekvens}
 Regressionsanalys av datan i figur \ref{fig:data_egenfrekvens} med lösningen i ekvation (\ref{eq:fri_pendel}) gav:
-\begin{equation}
+\begin{equation*}
 	\theta(t)=\frac{1}{r}0.125665\cdot\sin\bigl(3.15192t+1.81944\bigr)
-\end{equation}
+\end{equation*}
 Med en determinationskoefficient $R^2\approx 98.92\%$.
 
-Egenfrekvensen är alltså $\omega_0=\sqrt\frac{k}{I}=\SI{3.15192}{rad/s}$, amplituden $A=\SI{0.125665}{m}$, och fas\-förskjutningen $\phi=\SI{1.81944}{rad}$.
+Egenfrekvensen är alltså $\omega_0=\sqrt\frac{k}{I}=\SI{3.15192}{rad/s}$, amplituden $A=\frac{1}{r}0.125665$ \si{rad}, och fas\-förskjutningen $\phi=\SI{1.81944}{rad}$.
 
 \subsection{Resonansfrekvens}
-Regressionsanalys av drivenhetens läge (figur \ref{fig:data_resonansfrekvens}) i intervallet $t\in(30,36)$, strax innan pendelsvängningens amplitud var som störst, med lösningen i ekvation (\ref{eq:fri_pendel}) gav:
-\begin{equation}
+Regressionsanalys av drivenhetens läge (figur \ref{fig:data_resonansfrekvens}) i intervallet $t\in(30,36)$ \si{s}, strax innan pendelsvängningens amplitud var som störst, med lösningen i ekvation (\ref{eq:fri_pendel}) gav:
+\begin{equation*}
 	y(t)=0.00631855\cdot\sin\bigl(3.35416t-1.75746\bigr)
-\end{equation}
+\end{equation*}
 Med en determinationskoefficient $R^2\approx 96.57\%$ i området. Resonansfrekvensen som beräknades genom regressionen var alltså $\omega_r=\SI{3.35416}{rad/s}$. 
 
 Ett annat sätt att beräkna resonansfrekvensen är med uttrycket i ekvation (\ref{eq:resonansfrekvens}). Utan någon dämpning i pendeln ger ekvationen $\omega_r=\omega_0$. Det finns dock ett litet luftmotstånd som dämpar pendeln naturligt, och denna ska enligt den matematiska modellen sänka resonansfrekvensen. Vi antar att även denna dämpningskraft är linjärt proportionell mot $\theta'(t)$.
@@ -218,43 +218,70 @@ Resonansfrekvensen beräknad från datan i figur \ref{fig:data_resonansfrekvens}
 Det kan finnas flera orsaker till detta. En skulle kunna vara brister i metoden, exempelvis att drivkraftens frekvens justerades kontinuerligt istället för stegvis. Det kan ha gjort att tidsintervallet som regressionsanalysen bör ha baserats på var otydligt. Det kan också ha gjort att modellen gav felaktiga resultat eftersom den antar att drivfrekvensen är konstant, trots att förändringen inte var särskilt hastig i experimentet.
 
 \subsection{Dämpad svängning}
-Figurerna \ref{fig:data_1_v}-\ref{fig:data_14_v}
+Figurerna \ref{fig:data_1_v}-\ref{fig:data_14_v} visar odrivna svängningar med olika spänning i dämpningsenheten och därmed olika dämpningskonstanter $\lambda$, eller $l=\frac{\lambda}{I}$. För att hitta ett samband mellan spänningen $U$ och dämpningen $l$ gjordes en regressionsanalys för varje spänning. För tydligt svagt dämpade svängningar användes ekvation (\ref{eq:svagt_dämpad}). För svängningarna i figurerna \ref{fig:data_9_v}-\ref{fig:data_14_v} gjordes regressionsanalys med både ekvation (\ref{eq:svagt_dämpad}) och (\ref{eq:starkt_dämpad}), och den som gav störst förklaringsgrad användes. Detta avgjorde alltså vilka svängningar som var svagt dämpade och vilka som var starkt dämpade. Det visade sig att endast svängningen med 14 V i figur \ref{fig:data_14_v} var starkt dämpad, resten var svagt dämpade. Tabell \ref{tb:dämpning_spänning} visar värdena på $l$ som togs fram för olika värden på $U$. 
 
 \begin{table}[hp]
 	\centering
-	\begin{tabular}{ |l|l| }
+	\caption{Avrundade värden på $\frac{\lambda}{I}$ och förklaringsgrad för olika spänningsvärden i dämpningsenheten.}
+	\begin{tabular}{ |l|l|l| }
 		\hline 
 		\rule{0ex}{1.5em}
-		$U$ [V] & $\frac{\lambda}{I}$ [\si{rad^{-1}s^{-1}}]
+		$U$ [V] & $\frac{\lambda}{I}$ [\si{rad^{-1}s^{-1}}] & $R^2$ [\%]
 		\\[0.5em]
 		\hline
-		0 & 0.032 \\
+		0 & 0.032 & 99.90 \\
 		\hline
-		1 & 0.43 \\
+		1 & 0.43 & 99.17 \\
 		\hline
-		4 & 0.96 \\
+		4 & 0.96 & 99.37 \\
 		\hline
-		5 & 1.3 \\
+		5 & 1.3 & 99.58 \\
 		\hline
-		6 & 1.7 \\
+		6 & 1.7 & 99.87 \\
 		\hline
-		7 & 2.3 \\
+		7 & 2.3 & 99.92 \\
 		\hline
-		8 & 2.9 \\
+		8 & 2.9 & 99.95 \\
 		\hline
-		9 & 4.2 \\
+		9 & 4.2 & 99.90 \\
 		\hline
-		10 & 4.3 \\
+		10 & 4.3 & 99.92 \\
 		\hline
-		11 & 4.4 \\
+		11 & 4.4 & 99.94 \\
 		\hline
-		13 & 5.1 \\
+		13 & 5.1 & 99.94 \\
 		\hline
-		14 & 6.3 \\
+		14 & 6.3 & 99.77 \\
 		\hline
 	\end{tabular}
-	\caption{Avrundade värden på $\frac{\lambda}{I}$ för olika spänningsvärden i dämpningsenheten, framtagna med funktionsanpassning.}
+	\label{tb:dämpning_spänning}
 \end{table}
+
+För att hitta modeller för $l(U)$ gjordes även linjär- och potensregression av datan i tabell \ref{tb:dämpning_spänning}. Eftersom $l$ för $U=\SI{0}{V}$ är mycket exakt (dämpningsenheten avslagen, felet hos $U$ är $\pm0$) så sattes detta värdet som ett oanpassat startvillkor i modellerna. Den linjära regressionen gav sambandet:
+\begin{equation}\label{eq:linjärt_samband_dämpning}
+	\frac{\lambda}{I}=0.3983U+0.03163
+\end{equation}
+Med förklaringsgrad 93.66\%.
+Potensregressionen gav sambandet:
+\begin{equation}\label{eq:potenssamband_dämpning}
+	\frac{\lambda}{I}=0.1739U^{1.352}+0.03163
+\end{equation}
+Med förklaringsgrad 96.99\%.
+Figur \ref{fig:dämpning_över_spänning} visar datan i tabell \ref{tb:dämpning_spänning} som en graf tillsammans med de anpassade sambanden.
+
+Ett annat sätt man hade kunnat avgöra $l$ för en svängning är att använda koordinaterna för två extrempunkter av svängningen med samma polaritet $(t_0,A_0)$ och $(t_1,A_1)$, då sinusfaktorn i ekvation (\ref{eq:svagt_dämpad}) är 1:
+\begin{equation*}
+	\begin{cases}
+		Ae^{-\frac{l}{2}t_0}=A_0\\
+		Ae^{-\frac{l}{2}t_1}=A_1
+	\end{cases}
+	\Leftrightarrow
+	\begin{cases}
+		A=\Bigl(\frac{A_1^{t_0}}{A_0^{t_1}}\Bigr)^\frac{1}{t_0-t_1}\\
+		\frac{\lambda}{I}=-\frac{2}{t_1-t_0}\ln\Bigl(\frac{A_1}{A_0}\Bigr)
+	\end{cases}
+\end{equation*}
+Det finns dock flera nackdelar med den tekniken. Om svängningen inte är perfekt centrerad behöver svängningens mittvärde subtraheras från $A_0$ och $A_1$, medan med regressionsanalysen behöver endast en anpassad konstant adderas till funktionen för att justera y-förskjutningen. En annan nackdel är att det inte alltid finns exakta extrempunkter i den insamlade datan, då den har en relativt låg upplösning. Regressionsanalysen har fler punkter att basera uträkningen på. 
 
 \begin{figure}[hp]
 	\includegraphics[width=\textwidth]{graf_voltage_damping}
@@ -263,5 +290,12 @@ Figurerna \ref{fig:data_1_v}-\ref{fig:data_14_v}
 \end{figure}
 
 \section{Slutsatser}
+Egenfrekvensen som togs fram var \SI{3.15192}{rad/s}. Den största felkällan i experimentet för egenfrekvensen kan ha varit inexaktheten och upplösningen av den insamlade datan. Datan är kvantiserad antingen av sensorerna eller av Cassy Lab till steg av \SI{0.001}{m}, vilket är tillräckligt stort för att synas på den skala som datavärdena har. Många av punkterna föll också bort, vilket innebar att datapunkterna hade oregelbundna tidsintervall. Detta gäller alla mätningar, men det finns större felkällor i de andra experimenten.
+
+Resonansfrekvensen som togs fram genom regressionsanalys av drivenhetens läge var \SI{3.35416}{rad/s} medan resonansfrekvensen som togs fram med ekvation (\ref{eq:resonansfrekvens}) var \SI{3.15184}{rad/s}. Kvantiseringen av lägesvärdena påverkade datan för drivenheten extra mycket eftersom dess amplitud var mycket låg, så det kan ha varit en felkälla. Jag tror dock den största felkällan var att drivfrekvensen inte var konstant, och alltså följde inte systemet den matematiska modellen.
+
+Ett linjärt samband (ekvation \ref{eq:linjärt_samband_dämpning}) och ett potenssamband (ekvation \ref{eq:potenssamband_dämpning}) mellan spänning och dämpningen $\frac{\lambda}{I}$ togs fram. Den största felkällan bör vara inexaktheten i spännings\-värdena, eftersom funktionsanpassningarna för respektive spänning var mycket lyckade (se tabell \ref{tb:dämpning_spänning}). Spänningen sattes inte exakt, utan genom att vrida en knapp. Felet i spänningsvärdena kan uppskattas vara \SI{\pm0.5}{V}. Det syns i figur \ref{fig:dämpning_över_spänning} att grafen fluktuerar på ett sätt som gör att systemet hade avvikt på ett mycket speciellt sätt från någon matematisk modell. Dämpningen ökade alltid för varje spänningsvärde, vilket är ett tecken på att de framtagna sambanden kan beskriva systemet ungefärligt.
+
+De flesta regressionsanalyser gav en mycket hög förklaringsgrad, vilket betyder att den matematiska modellen beskriver systemet väl. Determinationskoefficienten för den fria svängningen med ekvationen för odämpad svängning var lägre (98.92\%) än för regression med ekvationen för svagt dämpad svängning (99.9\%), vilket var förväntat eftersom pendeln fortfarande dämpas av luftmotståndet.
 
 \end{document}
